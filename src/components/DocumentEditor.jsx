@@ -3,7 +3,7 @@ import DocumentPreview from "./DocumentPreview";
 import { DEFAULT_TIMBRE, DEFAULT_TVA } from "../constants/company";
 import { formatTND, generateDocNumber } from "../utils/format";
 
-function DocumentEditor({ type, onBack }) {
+function DocumentEditor({ type, onBack, onLogout }) {
   const previewRef = useRef(null);
   const [exporting, setExporting] = useState(false);
   const [mobileTab, setMobileTab] = useState("form");
@@ -103,7 +103,15 @@ function DocumentEditor({ type, onBack }) {
           <h1 className="text-xl sm:text-2xl font-bold text-blue-700">
             Nouveau {label}
           </h1>
-          <div className="hidden sm:flex gap-3">
+          <div className="hidden sm:flex gap-3 items-center">
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="px-4 py-2.5 rounded-lg text-gray-500 hover:text-red-600 hover:bg-red-50 font-medium min-h-[44px] text-sm"
+              >
+                Déconnexion
+              </button>
+            )}
             <button
               onClick={onBack}
               className="px-5 py-2.5 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium min-h-[44px]"

@@ -1,9 +1,19 @@
-import { FaFileAlt, FaReceipt } from "react-icons/fa";
+import { FaFileAlt, FaReceipt, FaSignOutAlt } from "react-icons/fa";
 
-function Home({ onDevis, onFacture }) {
+function Home({ onDevis, onFacture, onLogout }) {
   return (
     <div className="min-h-screen bg-slate-100 flex items-center justify-center px-4 py-8 sm:py-12">
       <div className="max-w-5xl w-full">
+        <div className="flex justify-end mb-4 max-w-5xl mx-auto">
+          <button
+            onClick={onLogout}
+            className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:text-red-600 hover:bg-white rounded-lg border border-transparent hover:border-gray-200 transition min-h-[44px]"
+          >
+            <FaSignOutAlt />
+            Déconnexion
+          </button>
+        </div>
+
         <div className="text-center mb-8 sm:mb-12">
           <img
             src="/logo.jpg"
